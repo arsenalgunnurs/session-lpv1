@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>直個別LP 改善案</title>
+<style>
+:root{--mag:#B0236B;--pink:#E8467C;--pur:#7B3FE4;--ink:#1f1a24;--sub:#6b6873;--bg:#f1efe9;--card:#fff;--soft:#FCE7F1}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.7}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 80px}
+h1.doc{font-size:22px;margin:0 0 6px}
+.lead{font-size:13px;color:var(--sub);margin:0 0 16px}
+table.sum{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;font-size:13px;margin-bottom:28px}
+table.sum th,table.sum td{padding:8px 10px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}
+table.sum th{background:#2b2530;color:#fff;font-weight:700}
+.k{display:inline-block;font-size:11px;font-weight:800;border-radius:6px;padding:1px 7px;color:#fff;white-space:nowrap}
+.k.new{background:#1f8a5b}.k.chg{background:#d9822b}.k.keep{background:#8a8792}.k.del{background:#c0392b}
+.cols{display:flex;gap:28px;align-items:flex-start}
+.phone{flex:none;width:400px;background:#fff;border-radius:28px;box-shadow:0 6px 30px rgba(60,20,50,.12);overflow:hidden}
+.side{flex:1;min-width:0}
+@media(max-width:860px){.cols{flex-direction:column}.phone{width:100%;max-width:400px;margin:0 auto}}
+/* annotation */
+.note{background:#FFF6C9;border-left:4px solid #e0b100;font-size:12px;padding:8px 12px;line-height:1.6;color:#4a3d00}
+.note b{color:#2b2200}
+/* LP */
+.sec{padding:28px 22px;border-bottom:1px solid #f3e6ee}
+.eyebrow{font-size:11px;letter-spacing:.12em;color:var(--pink);font-weight:800;text-align:center}
+.h2{font-size:22px;font-weight:900;text-align:center;margin:4px 0 14px;line-height:1.45}
+.grad{background:linear-gradient(90deg,var(--pink),var(--pur));-webkit-background-clip:text;background-clip:text;color:transparent}
+.fv{background:linear-gradient(160deg,#fff 0%,#FCE7F1 60%,#EEE9FC 100%);padding:26px 22px 24px}
+.logo{font-size:13px;font-weight:800;color:var(--mag);letter-spacing:.05em}
+.fv .q{font-size:25px;font-weight:900;line-height:1.4;margin:18px 0 10px}
+.fv .name{display:inline-block;background:#2b2530;color:#fff;font-size:13px;font-weight:800;padding:4px 12px;border-radius:6px}
+.fv .sub{font-size:14px;font-weight:700;margin:12px 0}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badges span{font-size:12px;font-weight:800;color:var(--mag);border:1.5px solid var(--mag);border-radius:6px;padding:2px 8px;background:#fff}
+.cta{display:block;margin:18px auto 0;width:100%;text-align:center;background:linear-gradient(90deg,var(--pink),var(--pur));color:#fff;font-weight:900;font-size:18px;padding:14px 10px 10px;border-radius:999px;text-decoration:none;box-shadow:0 4px 0 #8b1d55}
+.cta small{display:block;font-size:11px;font-weight:700;opacity:.9}
+.dl{margin-top:12px;background:#fff;border:2px dashed var(--mag);border-radius:12px;padding:8px 12px;font-size:13px;font-weight:800;text-align:center;color:var(--mag)}
+.video{position:relative;aspect-ratio:16/9;border-radius:14px;background:linear-gradient(135deg,#3a2d44,#6b4a7a);color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;font-weight:800}
+.video .play{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.9);color:var(--mag);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:6px}
+.video .t{font-size:12px;opacity:.85}
+.chat{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.bub{max-width:82%;padding:8px 13px;border-radius:16px;font-weight:800;font-size:14px;background:var(--soft)}
+.bub.l{align-self:flex-start;border-bottom-left-radius:4px;background:#f4f1f6}
+.bub.r{align-self:flex-end;border-bottom-right-radius:4px}
+.bub.big{font-size:16px}
+.small{font-size:11px;color:#8a8792;text-align:center;margin-top:8px}
+.ok{margin-top:14px;font-size:14px;font-weight:700;background:#fff;border-radius:12px;padding:12px 14px;border:1px solid #f0dbe6}
+.get{background:#fff;border:1px solid #f0dbe6;border-radius:14px;padding:14px 16px;margin-top:12px}
+.get .n{font-size:17px;font-weight:900;color:var(--mag)}
+.get ul{margin:6px 0 0;padding-left:18px;font-size:13px;font-weight:700}
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #f0dbe6;border-radius:14px;padding:12px 14px}
+.step .num{flex:none;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--pur));color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center}
+.step b{font-size:16px}.step p{margin:2px 0 0;font-size:13px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.p{background:#fff;border:1px solid #eadde6;border-radius:12px;padding:10px}
+.p .tag{font-size:10px;font-weight:800;color:#fff;background:var(--mag);border-radius:4px;padding:1px 6px}
+.p .hd{font-size:13px;font-weight:900;line-height:1.45;margin:6px 0 4px}
+.p .fu{font-size:11.5px;color:#4b4552;line-height:1.55}
+.p .vd{margin-top:6px;font-size:11px;font-weight:800;color:var(--mag)}
+.acc{background:#fff;border:1px solid #eadde6;border-radius:12px;margin-top:10px;overflow:hidden}
+.acc summary{list-style:none;cursor:pointer;padding:12px 14px;display:block}
+.acc summary::-webkit-details-marker{display:none}
+.acc .tag{font-size:10px;font-weight:800;color:#fff;background:var(--mag);border-radius:4px;padding:1px 6px}
+.acc .hd{display:block;font-size:14px;font-weight:900;line-height:1.45;margin:6px 0 2px}
+.acc .fu{display:block;font-size:12px;color:#4b4552}
+.acc .vd{display:block;margin-top:8px;font-size:13px;font-weight:800;color:var(--mag);border:1.5px solid var(--mag);border-radius:999px;text-align:center;padding:5px}
+.acc[open] .vd{background:var(--mag);color:#fff}
+.video.sm{margin:0 14px 14px;border-radius:10px}
+.voice{background:#fff;border-radius:12px;border:1px solid #eadde6;padding:12px 14px;margin-top:10px}
+.voice .who{font-size:12px;color:var(--sub);font-weight:700}
+.voice .vh{font-size:15px;font-weight:900;margin:2px 0}
+.voice p{font-size:12.5px;margin:0}
+.toku{background:linear-gradient(160deg,#FFE3EF,#F2E8FF)}
+.tk{display:flex;gap:10px;align-items:center;background:#fff;border-radius:10px;padding:9px 12px;margin-top:8px;font-size:13px;font-weight:800}
+.tk i{font-style:normal;flex:none;width:26px;height:26px;border-radius:50%;background:var(--mag);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.promise li{font-weight:800;font-size:14px;margin:6px 0}
+.faq .qq{background:var(--mag);color:#fff;font-weight:800;font-size:13px;padding:8px 12px;border-radius:8px 8px 0 0;margin-top:10px}
+.faq .aa{background:#fff;border:1px solid #eadde6;border-top:0;font-size:12.5px;padding:8px 12px;border-radius:0 0 8px 8px}
+.foot{background:#2b2530;color:#ccc;font-size:11px;text-align:center;padding:16px}
+.side h3{font-size:15px;margin:18px 0 6px}
+.side ul{font-size:13px;margin:0;padding-left:18px}
+.side .box{background:#fff;border-radius:12px;padding:12px 16px;margin-bottom:12px;font-size:13px}
+.formula{font-family:ui-monospace,Menlo,monospace;background:#2b2530;color:#fff;border-radius:8px;padding:10px 12px;font-size:12.5px}
+.chk li{list-style:none;margin-left:-18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1 class="doc">直個別LP｜改善案モック</h1>
+<p class="lead">元：l.shift-ai.co.jp/lp/session-consultation/content-marketing-ai-side-01（2026-11-03時点）／左＝改善後のLP（スマホ幅）、黄色の枠＝どこをどう変えたか</p>
+
+<table class="sum">
+<tr><th style="width:28%">今のLP</th><th style="width:34%">シナリオとのズレ</th><th>どう変えるか</th></tr>
+<tr><td>FV「セミナー参加者限定」「AI副業 月20万」</td><td>直個別はセミナーを通らない人。月20万は「大きい金額を出さない」方針と逆。業務効率化（通1・通3-①②）の人が置いていかれる</td><td><span class="k chg">変更</span> 言い切りの「AIを使っているのに、仕事が減らない。」＋セッション名を「AI副業・業務効率化」に</td></tr>
+<tr><td>「セミナーは全員向けの話でした。ここからはあなた専用です」</td><td>セミナーに出ていない人には意味が通らない</td><td><span class="k del">削除</span></td></tr>
+<tr><td>豪華16大特典（申込7＋当日参加9）</td><td>シナリオは通4〜通6で「5大特典・今夜23:59まで」と言っている。数も締切も合わない</td><td><span class="k chg">変更</span> 5大特典＋締切の帯にそろえる（要確認①）</td></tr>
+<tr><td>相談の様子・相談例がない（FAQの奥にだけある）</td><td>通2（雰囲気動画）・通4（こんな悩みでいい？）で外したハードルが、LPで確かめられない</td><td><span class="k new">新規</span> FV直下に「相談の様子（2分）」＋「こんな相談でOK」</td></tr>
+<tr><td>90分で手に入るもの5つ（5年後までのお金の推移グラフ・収入の見通しなど）</td><td>お金の話に寄っていて、業務効率化の人には刺さらない。①と④がほぼ同じ</td><td><span class="k chg">変更</span> 3つに絞る</td></tr>
+<tr><td>実績者の声（月25万・月20万・月70万など）</td><td>大きい金額が並ぶ。通5で見せた6人と別の人</td><td><span class="k chg">変更</span> 通5の6人に差し替え（身近なサイズの変化だけ）</td></tr>
+<tr><td>「最後に、もう一度」で90分〜約束を丸ごと再掲／SHIFT AIとは</td><td>同じ中身の2回目で長いだけ（PDF24ページ中、約8ページ分）</td><td><span class="k del">削除</span></td></tr>
+</table>
+
+<div class="cols">
+<!-- ===== PHONE ===== -->
+<div class="phone">
+
+<div class="note"><b>① FV</b> <span class="k chg">変更</span><br>問いかけ（〜なっていませんか？）は「なっている／なっていない」の2通りに読めるので、言い切りにする。「楽」→「減らない」で意味を1つに固定。「個別相談」は使わず、「1対1」は「1on1」に統一。「セミナー参加者限定」「月20万」は外す。締切の帯を足す（通4〜6の「5大特典」とつなぐ）</div>
+<div class="fv">
+<div class="logo">SHIFT AI</div>
+<div class="q">AIを使っているのに、<br><span class="grad">仕事が減らない。</span></div>
+<span class="name">AI副業・業務効率化 スターターセッション</span>
+<div class="sub">副業でも、毎日の仕事でも。<br>あなたは何からAIに任せるか、<br>90分・1on1で一緒に決めます。</div>
+<div class="badges"><span>完全無料</span><span>オンライン</span><span>顔出し不要</span></div>
+<a class="cta" href="#">無料で日程を確認する<small>90分・オンライン・顔出し不要</small></a>
+<div class="dl">🎁 LINEでご案内した期限までの申込で、5大特典つき</div>
+</div>
+
+<div class="note"><b>② 1on1セッションの様子＋こんな相談でOK</b> <span class="k new">新規</span><br>通2の雰囲気動画と、通4の画像（トーク風の4つの悩み）をそのまま置く。シナリオで外したハードルをLPで「確かめられる」場所にする。FAQの「まだ決まってなくても大丈夫？」「PCが得意でなくても？」の答えをここに引き上げる</div>
+<div class="sec">
+<div class="eyebrow">SESSION</div>
+<div class="h2">1on1セッションは、<br>こんな感じです</div>
+<div class="video"><div class="play">▶</div>実際のセッションの様子（2分）<div class="t">※通2と同じ雰囲気動画</div></div>
+<div class="chat">
+<div class="bub l big">毎月何日もかかる作業を、AIで減らしたい</div>
+<div class="bub r">副業で、何ができるのかわからない</div>
+<div class="bub l">AIを使っても、答えがイマイチ</div>
+<div class="bub r">パソコン入力もしたことがないけど、できるかな</div>
+</div>
+<div class="small">※実際の1on1セッションをもとにしています</div>
+<div class="ok">聞きたいことがまとまっていなくても、<br>やりたいことが決まっていなくても大丈夫です。<br><span style="color:var(--mag)">まずは一緒に整理する90分です。</span></div>
+</div>
+
+<div class="note"><b>③ この90分で手に入るもの</b> <span class="k chg">変更</span><br>5つ→3つ。「①副業の方向を1つに確定」を「何からAIに任せるか」に広げて業務効率化も入れる。「④プロによる方向づけ」は①と同じなので統合。「⑤収入の見通し」「5年後までのお金の推移グラフ」は外す（お金に寄りすぎ／大きい金額に見える）。冒頭の「セミナーは全員向けの話でした」は削除</div>
+<div class="sec">
+<div class="eyebrow">SESSION OUTCOMES</div>
+<div class="h2">この90分で<br>手に入るもの</div>
+<div class="get"><div class="n">① 何からAIに任せるかが、1つに決まる</div><ul><li>毎日の仕事の効率化か、副業か。あなたに合う入口を1つに絞る</li><li>何から始めるかで迷う時間がゼロになる</li></ul></div>
+<div class="get"><div class="n">② 今の仕事・経験の棚卸し</div><ul><li>今の仕事・使える時間・得意を一緒に整理</li><li>例：経理の経験 → 毎月の集計をAIで自動化<br>　　接客の経験 → お客さま対応の文面づくり</li></ul></div>
+<div class="get"><div class="n">③ 次の90日の進め方（PDFで持ち帰り）</div><ul><li>1か月後・3か月後に、何をやるかのリスト</li><li>つまずきやすい所と、その越え方</li></ul></div>
+</div>
+
+<div class="note"><b>④ 3ステップ</b> <span class="k keep">そのまま</span><br>「身構えなくていい」が伝わっているので残す。③の文言だけ「3ヶ月・半年・1年」→「90日」に合わせる</div>
+<div class="sec">
+<div class="eyebrow">3 SIMPLE STEPS</div>
+<div class="h2"><span class="grad">セッションでやることは、<br>3つだけ</span></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><div><b>聞きます</b><p>今の状況と、本当にかなえたいことを、こちらから質問して整理します。</p></div></div>
+<div class="step"><div class="num">2</div><div><b>決めます</b><p>あなたの経験が活きる「AIに任せること」を、その場で1つに絞ります。</p></div></div>
+<div class="step"><div class="num">3</div><div><b>描きます</b><p>次の90日で何をするか。あなた専用の進め方にして渡します。</p></div></div>
+</div>
+<a class="cta" href="#">無料で日程を確認する<small>90分・オンライン・顔出し不要</small></a>
+</div>
+
+<div class="note"><b>⑤ あなたに近い経歴の人</b> <span class="k chg">変更</span>（トグル式）<br>「SHIFT AI実績者の声」（月25万・月20万・月70万…）を、通5の6人に差し替え。<b>1人1行のトグル</b>にして、「本人のインタビューを見る」を押すとその場で2分の動画が開く（見本として1人目だけ開いた状態）。閉じている間は見出し＋身近な変化だけ見えるので、スマホでも長くならない</div>
+<div class="sec">
+<div class="eyebrow">MEMBER STORIES</div>
+<div class="h2">あなたに近い経歴の人は、<br>AIで何をしている？</div>
+<details class="acc" open><summary><span class="tag">現場・技術</span><span class="hd">忙しくて何もできなかった1年間／建設業の会社員が動き出せた理由</span><span class="fu">本業も子育ても続けたまま、毎月続く副業の仕事が</span><span class="vd">▶ 本人のインタビューを見る（2:23）</span></summary>
+<div class="video sm"><div class="play">▶</div>インタビュー動画（2:23）<div class="t">タップで再生・ページ内で開く</div></div></details>
+<details class="acc"><summary><span class="tag">事務・公務</span><span class="hd">AIを仕事に使うなんて／考えもしなかった公務員27年</span><span class="fu">好きだった「つくる仕事」で、有料の開発案件を7件</span><span class="vd">▶ 本人のインタビューを見る（2:07）</span></summary>
+<div class="video sm"><div class="play">▶</div>インタビュー動画（2:07）<div class="t">タップで再生・ページ内で開く</div></div></details>
+<details class="acc"><summary><span class="tag">営業・企画</span><span class="hd">母の介護をしながら／58歳でAIを学び始めました</span><span class="fu">4時間かかっていた資料作りが、半分の時間に</span><span class="vd">▶ 本人のインタビューを見る（2:29）</span></summary>
+<div class="video sm"><div class="play">▶</div>インタビュー動画（2:29）<div class="t">タップで再生・ページ内で開く</div></div></details>
+<details class="acc"><summary><span class="tag">ものづくり</span><span class="hd">案件単価500円の挫折から／得意×AIで人生が激変</span><span class="fu">会社員を続けながら、好きなCG×AIの仕事を</span><span class="vd">▶ 本人のインタビューを見る（2:16）</span></summary>
+<div class="video sm"><div class="play">▶</div>インタビュー動画（2:16）<div class="t">タップで再生・ページ内で開く</div></div></details>
+<details class="acc"><summary><span class="tag">お店・自営業</span><span class="hd">「まさか自分がAIなんて…」／59歳ケーキ店主の新たな挑戦</span><span class="fu">週末だけの営業を続けながら、お店の発信もAIで</span><span class="vd">▶ 本人のインタビューを見る（2:44）</span></summary>
+<div class="video sm"><div class="play">▶</div>インタビュー動画（2:44）<div class="t">タップで再生・ページ内で開く</div></div></details>
+<details class="acc"><summary><span class="tag">その他</span><span class="hd">数カ月前までAIとは無縁／母の闘病を機にAIの世界へ</span><span class="fu">毎日の役所回りが、AIで1日2時間短く</span><span class="vd">▶ 本人のインタビューを見る（2:42）</span></summary>
+<div class="video sm"><div class="play">▶</div>インタビュー動画（2:42）<div class="t">タップで再生・ページ内で開く</div></div></details>
+<div class="small">※一事例であり、同様の成果を保証するものではありません</div>
+</div>
+
+<div class="note"><b>⑥ 参加者の声</b> <span class="k chg">変更</span>（数を絞る）<br>今の声はとても良いので残す。ただし並べすぎ。「年齢」「初歩の質問」「人の温かさ」の3人だけにする（どれもハードル外しの声）</div>
+<div class="sec">
+<div class="eyebrow">VOICES</div>
+<div class="h2">一足先にセッションに<br>参加された方の声</div>
+<div class="voice"><div class="who">No.01｜40代後半・主婦</div><div class="vh">年齢への不安が消え、最初の一歩が見えました</div><p>（今のLPの本文をそのまま）</p></div>
+<div class="voice"><div class="who">No.07｜40代後半・会社員（会計事務所）</div><div class="vh">初歩の質問にも誠実に向き合ってもらえました</div><p>（今のLPの本文をそのまま）</p></div>
+<div class="voice"><div class="who">No.22｜50代前半・主婦</div><div class="vh">AIの速さと、人の温かみの両方に安心しました</div><p>（今のLPの本文をそのまま）</p></div>
+</div>
+
+<div class="note"><b>⑦ 特典</b> <span class="k chg">変更</span><br>「豪華16大特典（申込7＋当日参加9）」→シナリオと同じ「5大特典」＋締切。LINEの5大特典画像をそのまま使う。人によって締切日が違うので、LPには日付を書かず「LINEでご案内した期限まで」にする</div>
+<div class="sec toku">
+<div class="eyebrow">BONUS</div>
+<div class="h2">スターターセッション申込で<br><span class="grad">豪華5大特典</span></div>
+<div class="tk"><i>1</i>Google AI（※画像の特典名をそのまま）</div>
+<div class="tk"><i>2</i>フォルダ設計ガイド</div>
+<div class="tk"><i>3</i>Claude Code 業務アプリ</div>
+<div class="tk"><i>4</i>ChatGPT × インスタ</div>
+<div class="tk"><i>5</i>Gemini Notebook</div>
+<div class="dl">LINEでご案内した期限までの申込が対象です</div>
+<a class="cta" href="#">無料で日程を確認する<small>90分・オンライン・顔出し不要</small></a>
+</div>
+
+<div class="note"><b>⑧ お約束（売り込みなし）</b> <span class="k keep">そのまま</span><br>「無料＝勧誘される？」の不安を消す、効いているパート。文言も今のまま</div>
+<div class="sec promise">
+<div class="eyebrow">OUR PROMISE</div>
+<div class="h2">最後に、お約束します</div>
+<ul>
+<li>✅ 高額商品を無理にすすめることはしません</li>
+<li>✅ あなたに必要ないと判断すれば、こちらからオファーはしません</li>
+<li>✅ その場で契約を迫ることもしません</li>
+</ul>
+</div>
+
+<div class="note"><b>⑨ FAQ</b> <span class="k chg">変更</span>（1問追加・2問は②へ移動）<br>「業務効率化の相談だけでもいい？」を足す。「まだ決まってなくても」「PCが得意でなくても」は②で答えたので短く</div>
+<div class="sec faq">
+<div class="h2">よくあるご質問</div>
+<div class="qq">Q. 本当に無料ですか？</div><div class="aa">（今のまま）</div>
+<div class="qq">Q. 営業や勧誘があるのでは？</div><div class="aa">（今のまま）</div>
+<div class="qq">Q. 副業ではなく、今の仕事の効率化の相談だけでもいいですか？</div><div class="aa">はい、大丈夫です。毎月の集計・資料づくり・文章づくりなど、今の仕事のどこからAIに任せるかを一緒に整理します。</div>
+<div class="qq">Q. ロードマップとは、どこまで具体的なものですか？</div><div class="aa">（今のまま。「3か月〜1年」は「90日」に合わせる）</div>
+<a class="cta" href="#">無料で日程を確認する<small>90分・オンライン・顔出し不要</small></a>
+</div>
+
+<div class="note"><b>⑩ 「最後に、もう一度」以下の再掲・SHIFT AIとは</b> <span class="k del">削除</span><br>90分で手に入るもの〜お約束を丸ごと2回目に出している。CTAはFAQの直後で足りる。SHIFT AIの会社紹介はLINE登録者は知っているので外す</div>
+<div class="foot">運営会社｜利用規約｜プライバシーポリシー｜特定商取引法に基づく表記</div>
+</div>
+
+<!-- ===== SIDE ===== -->
+<div class="side">
+<div class="box">
+<h3 style="margin-top:0">このLPで動かす変数は1つ</h3>
+<div class="formula">着座数 = シナリオ開始 × LP到達率 × <b style="color:#FFD34D">予約率</b> × 着座率</div>
+<p style="margin:8px 0 0">LPの仕事は<b>予約率</b>だけ。LP到達率はシナリオ（ボタン・つなぎ文）が持つ。<br>そのために「LINEで読んだことと、LPに書いてあることを1対1でつなぐ」のが今回の直し方。</p>
+</div>
+<div class="box">
+<h3 style="margin-top:0">シナリオ → LP の対応</h3>
+<ul>
+<li>通1「AIを使っても仕事が楽に…」→ ①FV</li>
+<li>通2 雰囲気動画 → ②相談の様子</li>
+<li>通3 悩み4択 → ③90分で手に入るもの（業務効率化も入れる）</li>
+<li>通4「こんな悩みで…」→ ②こんな相談でOK</li>
+<li>通5 実績者6人 → ⑤あなたに近い経歴の人</li>
+<li>通4〜6「5大特典・締切」→ ①の帯＋⑦特典</li>
+</ul>
+</div>
+<div class="box">
+<h3 style="margin-top:0">優先順位（全部やらんでいい）</h3>
+<ol style="font-size:13px;margin:0;padding-left:18px">
+<li><b>特典の数と締切をそろえる（⑦・①の帯）</b>：シナリオと食い違ったままだと「話が違う」で離脱する。いちばん先</li>
+<li><b>FVの差し替え（①）</b>：「セミナー参加者限定」「月20万」が、直個別の人には別のLPに見える</li>
+<li><b>相談の様子＋こんな相談でOKを足す（②）</b>：通2・通4で作った素材をそのまま置くだけ</li>
+</ol>
+<p style="margin:8px 0 0;font-size:12px;color:var(--sub)">⑤実績者の差し替え・⑩削除は、上の3つの後でいい（掲載許可の確認が要るため）</p>
+</div>
+<div class="box">
+<h3 style="margin-top:0">確認したいこと</h3>
+<ul class="chk">
+<li>☐ ① 特典は「5大特典」と「16大特典」どっちが正？（LPとシナリオ、どちらに合わせるか）</li>
+<li>☐ ② このLPは直個別専用？ セミナー参加者も同じLPを見ているなら、FVの「セミナー参加者限定」は別LPに分けて残す</li>
+<li>☐ ③ 実績者6名の動画・名前・相談の様子の動画を、LPに出してよいか（掲載許可）</li>
+<li>☐ ④ ③の「PDFで持ち帰り」「90日の進め方」が、実際のセッションの中身と合っているか（営業チーム）</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
